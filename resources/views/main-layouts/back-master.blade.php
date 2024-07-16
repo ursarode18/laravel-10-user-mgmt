@@ -122,6 +122,7 @@
             </li>
             </ul>
         </li><!-- End User Nav -->
+
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#divsion-nav" data-bs-toggle="collapse" href="#">
               <i class="bi bi-journal-text"></i><span>Division</span><i class="bi bi-chevron-down ms-auto"></i>
@@ -135,6 +136,20 @@
 
             </ul>
         </li><!-- End division Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#cat-nav" data-bs-toggle="collapse" href="#">
+              <i class="bi bi-journal-text"></i><span>Category</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="cat-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+              <li>
+                <a href="{{ route('cat-show') }}">
+                  <i class="bi bi-arrow-right" style="font-size: 1.5rem;"></i><span>All Category</span>
+                </a>
+              </li>
+
+            </ul>
+        </li><!-- End Category Nav -->
         @endif
 
         @if(Auth::user()->id)

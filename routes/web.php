@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Division\DivisionController;
 use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\Aqua\AquaController;
+use App\Http\Controllers\Cat\CatController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -50,6 +52,26 @@ Route::middleware(['auth','verified'])->group(function(){
             // Password Reset
             Route::get('/user-pwd','pwdReset')->name('user-pwd');
             Route::post('/user-pwd','pwdStore')->name('user-pwd-store');
+        });
+
+        // Cat. Section
+        Route::controller(CatController::class)->group(function(){
+            Route::get('/cat-show','index')->name('cat-show');
+            Route::get('/cat-create','create')->name('cat-create');
+            Route::post('/cat-store','store')->name('cat-store');
+            Route::get('/cat-edit/{id}','edit')->name('cat-edit');
+            Route::post('/cat-upd/{id}','update')->name('cat-upd');
+            Route::get('/cat-del/{id}','destroy')->name('cat-del');
+        });
+
+        // Aqua Section
+        Route::controller(AquaController::class)->group(function(){
+            Route::get('/aqua-show','index')->name('aqua-show');
+            Route::get('/aqua-create','create')->name('aqua-create');
+            Route::post('/aqua-store','store')->name('aqua-store');
+            Route::get('/aqua-edit/{id}','edit')->name('aqua-edit');
+            Route::post('/aqua-upd/{id}','update')->name('aqua-upd');
+            Route::get('/aqua-del/{id}','destroy')->name('aqua-del');
         });
 
     });
